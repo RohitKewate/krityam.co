@@ -1,0 +1,35 @@
+# Krityam
+
+> Krityam is a done-for-you AI automation service for Indian D2C and e-commerce brands. We build and run systems that cut RTO (Return to Origin) on cash-on-delivery orders, raise average order value and bring customers back for repeat purchases.
+
+## Who it's for
+
+- D2C and e-commerce brands in India doing roughly ₹40L–₹1Cr in monthly revenue
+- Brands with meaningful COD volume and a high RTO rate
+- Founders, directors and CXOs who want fewer manual operations, without hiring more people
+
+Not a fit for brands with very low order volume, or brands not ready to share order and delivery data.
+
+## What we do
+
+1. Revenue Leak Audit™: after onboarding, we analyse the brand's RTO, COD, delivery and customer data to find high-RTO pincodes, products, segments and order patterns, and build an AI score that ranks every order as safer or riskier to ship.
+2. RTO Prevention Engine™: voice AI agents confirm COD orders before dispatch; WhatsApp automations handle unreachable customers, address issues and NDR (non-delivery report) follow-ups; high-risk orders go to AI or human intervention.
+3. LTV Growth Engine™: voice AI and WhatsApp upsell, cross-sell, reorder and win-back campaigns, with customers segmented by behaviour.
+
+Brands also get a live analytics dashboard covering RTO, recovered revenue, AOV and LTV.
+
+## How engagements work
+
+- It starts with a free 30-minute discovery call to discuss the brand's problems and whether Krityam is the right fit.
+- Done for you: one onboarding session, a dedicated account manager, a weekly 30-minute optimisation call and a monthly leadership review. Krityam handles the build, integration and upkeep.
+- Works with the brand's current store and courier setup.
+- The larger part of the fee is due only after the brand sees its RTO drop.
+- Support: Monday–Friday, 10 AM–6 PM IST on a dedicated WhatsApp line.
+
+## Links
+
+- [Home](https://krityam.co/): overview, how it works, FAQ
+- [Book a discovery call](https://krityam.co/book): free 30-minute call with the founder
+- [LinkedIn](https://www.linkedin.com/company/krityam-co/)
+- [Privacy Policy](https://krityam.co/privacy)
+- [Terms of Use](https://krityam.co/terms)

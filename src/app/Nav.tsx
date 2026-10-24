@@ -92,7 +92,7 @@ export function Nav({ cta }: { cta: string }) {
             ))}
           </nav>
           <div className="nav-end">
-            <Link href={cta} className="btn btn-sm btn-accent nav-cta">
+            <Link href={cta} className="btn btn-sm btn-accent nav-cta" data-ph-capture-attribute-cta-location="nav">
               Book a Call
             </Link>
             <button
@@ -118,7 +118,7 @@ export function Nav({ cta }: { cta: string }) {
               </a>
             ))}
           </nav>
-          <Link href={cta} className="btn btn-lg btn-accent sheet-cta" onClick={() => setOpen(false)}>
+          <Link href={cta} className="btn btn-lg btn-accent sheet-cta" onClick={() => setOpen(false)} data-ph-capture-attribute-cta-location="mobile-menu">
             Book a Free Discovery Call
           </Link>
         </div>
@@ -126,7 +126,7 @@ export function Nav({ cta }: { cta: string }) {
       {open && <div className="scrim" onClick={() => setOpen(false)} aria-hidden />}
 
       <div className={`mobile-bar ${pastHero && !open ? "is-on" : ""}`} aria-hidden={!pastHero}>
-        <Link href={cta} className="btn btn-lg btn-accent" tabIndex={pastHero ? 0 : -1}>
+        <Link href={cta} className="btn btn-lg btn-accent" tabIndex={pastHero ? 0 : -1} data-ph-capture-attribute-cta-location="mobile-bar">
           Book a Free Discovery Call
         </Link>
       </div>

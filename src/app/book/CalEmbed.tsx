@@ -1,5 +1,7 @@
 "use client";
 
+import { track } from "@vercel/analytics";
+import posthog from "posthog-js";
 import { useEffect, useState } from "react";
 import { CAL_LINK, CAL_URL } from "../site";
 
@@ -7,6 +9,11 @@ type Queue = ((...args: unknown[]) => void) & { q: unknown[][] };
 type CalApi = Queue & { ns: Record<string, Queue>; loaded?: boolean };
 
 const NS = "discovery";
+
+// Funnel events from inside the Cal.com iframe. posthog.capture is a no-op when PostHog isn't configured.
+function capture(event: string, props?: Record<string, string>) {
+  if (posthog.__loaded) posthog.capture(event, props);
+}
 const EMBED_SRC = "https://app.cal.com/embed/embed.js";
 
 // Cal.com's official loader, typed: calls are queued until embed.js arrives and replays them.
@@ -50,7 +57,24 @@ export function CalEmbed() {
     const api = Cal.ns[NS];
     api("inline", { elementOrSelector: "#cal-inline", calLink: CAL_LINK, config: { layout: "month_view", theme: "light" } });
     api("ui", { theme: "light", layout: "month_view", hideEventTypeDetails: true, cssVarsPerTheme: { light: { "cal-brand": "#ea580c" } } });
-    api("on", { action: "linkReady", callback: () => setReady(true) });
+    api("on", {
+      action: "linkReady",
+      callback: () => {
+        setReady(true);
+        capture("booking_calendar_loaded");
+      },
+    });
+    api("on", {
+      action: "bookingSuccessfulV2",
+      callback: () => {
+        capture("booking_completed", { event_type: CAL_LINK });
+        track("Booking completed");
+      },
+    });
+    api("on", {
+      action: "linkFailed",
+      callback: () => capture("booking_calendar_failed"),
+    });
   }, []);
 
   return (

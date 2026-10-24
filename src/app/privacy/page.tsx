@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <LegalPage title="Privacy Policy" updated="19 October 2026">
+    <LegalPage title="Privacy Policy" updated="24 October 2026">
       <p>
         This policy explains how Krityam (&ldquo;Krityam&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects, uses and
         protects personal data when you visit krityam.co, book a call with us, or work with us as a client. We process
@@ -40,8 +40,16 @@ export default function Privacy() {
       <h3>When you visit the website</h3>
       <p>
         Our hosting provider automatically records standard technical data such as IP address, browser type, device
-        information, pages visited and the time of the visit. We use this to keep the site secure and working. The site
-        does not currently use analytics or advertising cookies. If that changes, we will update this policy.
+        information, pages visited and the time of the visit. We use this to keep the site secure and working.
+      </p>
+      <h3>Analytics</h3>
+      <p>
+        To understand how visitors use the site and improve it, we use two analytics tools. Vercel Web Analytics counts
+        page visits without cookies. PostHog records how visitors move through the site, such as pages viewed, buttons
+        clicked, how far they scroll and anonymised session replays, and stores an identifier in a cookie and your
+        browser&rsquo;s local storage so repeat visits can be recognised. Anything typed into a form is masked and never
+        recorded. We don&rsquo;t identify individual visitors, and we don&rsquo;t use advertising cookies. You can block
+        these by turning on your browser&rsquo;s tracking protection or clearing site data.
       </p>
       <h3>When you book a call or contact us</h3>
       <p>
@@ -62,6 +70,7 @@ export default function Privacy() {
         <li>To respond to enquiries, hold discovery calls and assess whether we are the right fit.</li>
         <li>To set up, run and improve the services a client has engaged us for.</li>
         <li>To report results to clients, including dashboards and reviews.</li>
+        <li>To understand how visitors use our website and improve it.</li>
         <li>To keep our website and systems secure and prevent misuse.</li>
         <li>To meet legal, tax and regulatory obligations.</li>
       </ul>
@@ -84,8 +93,8 @@ export default function Privacy() {
       <p>We share personal data only as needed to run our business and deliver our services, with:</p>
       <ul>
         <li>
-          Service providers that support our work, such as hosting, scheduling, telephony and voice AI, WhatsApp
-          Business messaging, cloud storage and AI model providers. They may use the data only to provide their service
+          Service providers that support our work, such as hosting, website analytics (Vercel and PostHog), scheduling,
+          telephony and voice AI, WhatsApp Business messaging, cloud storage and AI model providers. They may use the data only to provide their service
           to us.
         </li>
         <li>Authorities, where the law requires it.</li>

@@ -13,7 +13,9 @@ export function Footer() {
             <Link href="/#what-we-do">What We Do</Link>
             <Link href="/#how-it-works">How It Works</Link>
             <Link href="/#faq">FAQ</Link>
-            <Link href="/book">Contact</Link>
+            <Link href="/book" data-ph-capture-attribute-cta-location="footer">
+              Contact
+            </Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms</Link>
           </nav>

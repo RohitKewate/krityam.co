@@ -29,6 +29,7 @@ Brands also get a live analytics dashboard covering RTO, recovered revenue, AOV 
 ## Links
 
 - [Home](https://krityam.co/): overview, how it works, FAQ
+- [Full site content](https://krityam.co/llms-full.txt): every section and FAQ answer as Markdown
 - [Book a discovery call](https://krityam.co/book): free 30-minute call with the founder
 - [LinkedIn](https://www.linkedin.com/company/krityam-co/)
 - [Privacy Policy](https://krityam.co/privacy)

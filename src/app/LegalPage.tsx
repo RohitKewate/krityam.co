@@ -9,7 +9,7 @@ export function LegalPage({ title, updated, children }: { title: string; updated
       <header className="legal-bar">
         <div className="wrap legal-bar-inner">
           <Logo href="/" />
-          <Link href={BOOKING_URL} className="btn btn-sm btn-accent">
+          <Link href={BOOKING_URL} className="btn btn-sm btn-accent" data-ph-capture-attribute-cta-location="legal-header">
             Book a Call
           </Link>
         </div>

@@ -3,87 +3,9 @@ import { Footer } from "./Footer";
 import { Nav } from "./Nav";
 import { HeroStage } from "./HeroStage";
 import { Reveal } from "./Reveal";
+import { compare, CONTENT_UPDATED, faqs, fit, problems, steps } from "./content";
 import { BOOKING_URL as BOOKING, DESCRIPTION, LINKEDIN_URL, SITE_NAME, SITE_URL } from "./site";
 const BOOKING_LABEL = "Book a Free Discovery Call";
-
-const problems = [
-  "Ad spend goes to orders that are never delivered.",
-  "Your team spends the day on confirmation calls and failed-delivery follow-ups.",
-  "Customers buy once and disappear.",
-  "You see revenue at checkout, not the profit left after returns.",
-];
-
-const steps = [
-  {
-    n: "01",
-    verb: "See",
-    name: "Revenue Leak Audit™",
-    points: [
-      "We analyze your RTO, COD, delivery and customer data.",
-      "We find your high-RTO pincodes, products, segments and order patterns.",
-      "We build an AI scoring system that ranks every order as safer or riskier to ship.",
-    ],
-  },
-  {
-    n: "02",
-    verb: "Stop",
-    name: "RTO Prevention Engine™",
-    points: [
-      "Voice AI agents confirm COD orders before dispatch.",
-      "WhatsApp automations handle unreachable customers, address issues and NDR follow-ups.",
-      "Low-risk orders move through normally. High-risk orders go to AI or human intervention.",
-    ],
-  },
-  {
-    n: "03",
-    verb: "Grow",
-    name: "LTV Growth Engine™",
-    points: [
-      "Voice AI upsell and cross-sell on confirmed and existing customers.",
-      "WhatsApp post-purchase, cross-sell, reorder and win-back campaigns.",
-      "Customers segmented by behavior, with offers tuned from real results.",
-    ],
-  },
-];
-
-const compare = {
-  cols: ["Telecalling team", "Marketing agency", "Krityam"],
-  rows: [
-    ["Who gets contacted", "Everyone", "Everyone", "The orders that need it"],
-    ["Works around the clock", "No", "Mostly", "Yes"],
-    ["Tied to RTO / AOV / LTV", "Loosely", "Rarely", "Directly"],
-    ["Needs your team to manage it", "Yes", "Yes", "No"],
-    ["Shows where the leak is", "No", "No", "Yes"],
-  ],
-};
-
-const fit = [
-  "D2C and e-commerce brands doing roughly ₹40L–₹1Cr a month",
-  "Brands with meaningful COD volume and a high RTO rate",
-  "Founders, directors and CXOs who want fewer manual operations",
-  "Teams that want results without hiring more people",
-];
-
-const faqs = [
-  {
-    q: "What is RTO and why does it matter?",
-    a: "Return to Origin: orders that are shipped but come back undelivered. Each one costs you the ad spend, the outbound shipping, the return shipping and the sale.",
-  },
-  { q: "Do I need to change my store or courier?", a: "No. We work with your current setup and go through the details on our first call." },
-  {
-    q: "Will AI calls hurt the customer experience?",
-    a: "The calls are short and specific to the customer's own order. Sensitive cases go to a human.",
-  },
-  { q: "How much of my team's time does this need?", a: "One onboarding session and a weekly 30-minute call. We do the rest." },
-  {
-    q: "What happens on the first call?",
-    a: "We spend 30 minutes on the problems you're seeing with RTO, COD and delivery, and whether we're the right fit. If we are, the Revenue Leak Audit™ is the first thing we do after onboarding.",
-  },
-  {
-    q: "When can I reach support?",
-    a: "Monday–Friday, 10 AM–6 PM IST on your dedicated WhatsApp line. Critical system issues get priority.",
-  },
-];
 
 // Organization, service and FAQ for search engines and AI assistants. The FAQ is built from `faqs` so it can't drift from the page.
 const jsonLd = {
@@ -96,9 +18,27 @@ const jsonLd = {
       url: SITE_URL,
       logo: `${SITE_URL}/images/krityam-mark.png`,
       description: DESCRIPTION,
-      founder: { "@type": "Person", name: "Rohit Kewate" },
+      slogan: "AI automation that turns D2C orders into delivered revenue.",
+      founder: { "@id": `${SITE_URL}/#founder` },
       areaServed: { "@type": "Country", name: "India" },
+      knowsAbout: [
+        "RTO (Return to Origin) reduction",
+        "Cash-on-delivery (COD) order confirmation",
+        "NDR (non-delivery report) management",
+        "Voice AI for e-commerce",
+        "WhatsApp automation for D2C brands",
+        "Order risk scoring",
+        "Customer lifetime value (LTV) growth",
+      ],
+      contactPoint: { "@type": "ContactPoint", contactType: "sales", url: `${SITE_URL}${BOOKING}`, areaServed: "IN", availableLanguage: "English" },
       sameAs: [LINKEDIN_URL],
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#founder`,
+      name: "Rohit Kewate",
+      jobTitle: "Founder",
+      worksFor: { "@id": `${SITE_URL}/#org` },
     },
     {
       "@type": "WebSite",
@@ -109,13 +49,31 @@ const jsonLd = {
       publisher: { "@id": `${SITE_URL}/#org` },
     },
     {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: "Krityam: AI automation for D2C orders",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#service` },
+      inLanguage: "en-IN",
+      dateModified: CONTENT_UPDATED,
+    },
+    {
       "@type": "Service",
       "@id": `${SITE_URL}/#service`,
       name: "Done-for-you AI automation for D2C brands",
       serviceType: "RTO reduction and e-commerce order automation",
       provider: { "@id": `${SITE_URL}/#org` },
       areaServed: { "@type": "Country", name: "India" },
-      audience: { "@type": "BusinessAudience", name: "D2C and e-commerce brands" },
+      description: faqs[0].a,
+      audience: { "@type": "BusinessAudience", name: "D2C and e-commerce brands in India doing roughly ₹40L–₹1Cr a month" },
+      offers: {
+        "@type": "Offer",
+        name: "Free 30-minute discovery call",
+        price: "0",
+        priceCurrency: "INR",
+        url: `${SITE_URL}${BOOKING}`,
+      },
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Krityam system",
@@ -145,9 +103,10 @@ function Arrow() {
   );
 }
 
-function BookButton({ size = "lg" }: { size?: "lg" | "xl" }) {
+// `location` lands on PostHog autocapture clicks as the `cta-location` property.
+function BookButton({ size = "lg", location }: { size?: "lg" | "xl"; location: string }) {
   return (
-    <Link href={BOOKING} className={`btn btn-${size} btn-accent`}>
+    <Link href={BOOKING} className={`btn btn-${size} btn-accent`} data-ph-capture-attribute-cta-location={location}>
       {BOOKING_LABEL}
       <Arrow />
     </Link>
@@ -330,7 +289,7 @@ export default function Home() {
               </div>
               <div className="hero-actions">
                 <div className="cta-row">
-                  <BookButton />
+                  <BookButton location="hero" />
                   <a href="#how-it-works" className="btn btn-lg btn-ghost">
                     See How It Works <span aria-hidden>↓</span>
                   </a>
@@ -453,7 +412,7 @@ export default function Home() {
                   leadership review. <span className="dim">We handle the build, the integration and the upkeep.</span>
                 </p>
               </div>
-              <Link href={BOOKING} className="btn btn-lg btn-dark">
+              <Link href={BOOKING} className="btn btn-lg btn-dark" data-ph-capture-attribute-cta-location="how-it-works">
                 {BOOKING_LABEL} <Arrow />
               </Link>
             </Reveal>
@@ -586,7 +545,7 @@ export default function Home() {
                 Book a 30-minute call. We&rsquo;ll talk through where your orders are leaking and whether we&rsquo;re the
                 right fit. If we&rsquo;re not, we&rsquo;ll tell you.
               </p>
-              <BookButton size="xl" />
+              <BookButton size="xl" location="final" />
               <p className="assure">
                 <svg viewBox="0 0 16 16" aria-hidden>
                   <path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />

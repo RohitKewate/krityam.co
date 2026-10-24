@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Manrope, Sora } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { DESCRIPTION, SITE_NAME, SITE_URL, TITLE } from "./site";
 
@@ -53,7 +54,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Extensions inject their own <script> tags into <head>, which React can mistake for this one during hydration. */}
         <script suppressHydrationWarning dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

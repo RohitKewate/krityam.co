@@ -7,7 +7,8 @@ if (key) {
   posthog.init(key, {
     // Sent through our own domain (see rewrites in next.config.ts) so ad blockers don't drop events.
     api_host: "/ingest",
-    ui_host: process.env.NEXT_PUBLIC_POSTHOG_REGION === "eu" ? "https://eu.posthog.com" : "https://us.posthog.com",
+    // The project lives in PostHog's EU cloud unless NEXT_PUBLIC_POSTHOG_REGION says "us".
+    ui_host: process.env.NEXT_PUBLIC_POSTHOG_REGION === "us" ? "https://us.posthog.com" : "https://eu.posthog.com",
     // Pageviews on client navigation, page-leave with scroll depth, heatmaps and dead clicks.
     defaults: "2026-08-30",
     // Anonymous visitors don't create person profiles; we never identify anyone.

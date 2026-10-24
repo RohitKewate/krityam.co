@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 // PostHog is proxied through /ingest on our own domain so ad blockers don't drop analytics.
-const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_REGION === "eu" ? "eu" : "us";
+// The project is in PostHog's EU cloud; NEXT_PUBLIC_POSTHOG_REGION="us" switches it.
+const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_REGION === "us" ? "us" : "eu";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
